@@ -19,6 +19,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import models.Film;
+import models.Films;
 
 
 @WebServlet(name="SearchServlet", urlPatterns = "/search")
@@ -81,12 +82,12 @@ public class SearchServlet extends HttpServlet {
 			response.setContentType("application/xml");
 			try {
 
-				JAXBContext jaxbContext = JAXBContext.newInstance(FilmListWrapper.class);
+				JAXBContext jaxbContext = JAXBContext.newInstance(Films.class);
 				Marshaller marshaller = jaxbContext.createMarshaller();
 				
 				marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 				
-				FilmListWrapper wrapper = new FilmListWrapper();
+				Films wrapper = new Films();
 				wrapper.setFilms(searchResults);
 				
 				marshaller.marshal(wrapper, pw);

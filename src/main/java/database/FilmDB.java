@@ -24,6 +24,7 @@ public class FilmDB {
 	
 	String dbURL = "jdbc:mysql://localhost:3306/";
 	String user = dotenv.get("USER");
+	Film oneFilm = null;
 	String password = dotenv.get("PASSWORD");
 	String databaseName = dotenv.get("DB_NAME");
 	String connectionURL = dbURL + databaseName + "?user=" + user + "&password=" + password;
